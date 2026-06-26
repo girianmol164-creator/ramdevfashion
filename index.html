@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="B & D Fashion House – Create Your Own Style. Premium fashion for Men & Kids. Explore shirts, jeans, shoes, custom designs. Luxury craftsmanship.">
+  <meta name="keywords" content="B & D Fashion House, create own style, men fashion, kids fashion, luxury clothing, premium shirts, jeans, shoes, custom fashion">
+  <meta name="author" content="B & D Fashion House">
+  <meta property="og:title" content="B & D Fashion House | Create Your Own Style">
+  <meta property="og:description" content="Premium Men's & Kids' Fashion. Discover elegance, confidence, and modern design.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Ramdev Fashion House | Create Your Own Style – Premium Men's & Kids' Fashion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #FFFFFF;
+      color: #1A1A1A;
+      line-height: 1.6;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .playfair {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .gold {
+      color: #D4AF37;
+    }
+
+    .bg-soft {
+      background: #FAF9F6;
+    }
+
+    /* Glass Header */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: all 0.4s ease;
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .site-header.scrolled {
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #1A1A1A;
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: #D4AF37;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 35px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #1A1A1A;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      letter-spacing: 0.8px;
+      transition: 0.3s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #D4AF37;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .header-icons {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      cursor: pointer;
+      color: #1A1A1A;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .icon-btn:hover {
+      color: #D4AF37;
+    }
+
+    .music-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FAF9F6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #eee;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      background: white;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .mobile-menu a {
+      padding: 14px 0;
+      text-decoration: none;
+      color: #1A1A1A;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover no-repeat;
+      background-attachment: fixed;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(3.5rem, 8vw, 5.5rem);
+      line-height: 1.1;
+      margin: 20px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 15px 38px;
+      font-weight: 500;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      border: 2px solid #D4AF37;
+      background: transparent;
+      color: #1A1A1A;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+      margin-right: 15px;
+      font-size: 0.9rem;
+      border-radius: 4px;
+    }
+
+    .btn-gold {
+      background: #D4AF37;
+      color: white;
+      border: 2px solid #D4AF37;
+    }
+
+    .btn:hover {
+      background: #D4AF37;
+      color: white;
+    }
+
+    .btn-white {
+      border: 2px solid white;
+      color: white;
+    }
+
+    .btn-white:hover {
+      background: white;
+      color: #1A1A1A;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 2s infinite;
+      font-size: 2rem;
+      color: #D4AF37;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* Trust Bar */
+    .trust-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 35px;
+      padding: 30px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 500;
+    }
+
+    /* Sections */
+    section {
+      padding: 90px 0;
+    }
+
+    .section-title {
+      font-size: 2.8rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      color: #555;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 45px;
+    }
+
+    .collection-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #FAF9F6;
+      transition: 0.4s;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .collection-card:hover {
+      border-color: #D4AF37;
+      transform: translateY(-6px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .collection-card img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      transition: 0.5s;
+    }
+
+    .collection-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .collection-card h3 {
+      padding: 15px;
+      text-align: center;
+    }
+
+    /* Slider */
+    .slider-container {
+      display: flex;
+      gap: 25px;
+      overflow-x: auto;
+      padding: 20px 0;
+      scroll-snap-type: x mandatory;
+    }
+
+    .slider-card {
+      min-width: 280px;
+      background: white;
+      padding: 20px;
+      scroll-snap-align: start;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .slider-card:hover {
+      border-color: #D4AF37;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    }
+
+    .slider-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    /* About Section */
+    .about-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .about-stats h3 {
+      font-size: 2rem;
+    }
+
+    /* Masonry Gallery */
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+    }
+
+    .masonry-item {
+      overflow: hidden;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.04);
+    }
+
+    /* ==================== INSTAGRAM VIDEO SECTION ==================== */
+    .instagram-video-section {
+      position: relative;
+      padding: 120px 0;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.65);
+      z-index: 1;
+    }
+
+    .video-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .video-content .section-label {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.2);
+      color: #D4AF37;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+    }
+
+    .video-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .video-content p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 500px;
+      margin: 0 auto 25px;
+    }
+
+    .instagram-handle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.3rem;
+      color: #D4AF37;
+      text-decoration: none;
+      font-weight: 500;
+      margin-bottom: 30px;
+      transition: 0.3s;
+    }
+
+    .instagram-handle:hover {
+      color: white;
+    }
+
+    .instagram-grid-preview {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .insta-thumb {
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .insta-thumb:hover {
+      border-color: #D4AF37;
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .insta-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s;
+    }
+
+    .insta-thumb:hover img {
+      transform: scale(1.08);
+    }
+
+    /* ==================== PROFESSIONAL REVIEW SECTION ==================== */
+    .reviews-section {
+      background: #FAF9F6;
+      padding: 100px 0;
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .reviews-header .section-label {
+      display: inline-block;
+      background: rgba(212, 175, 55, 0.1);
+      color: #D4AF37;
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
+
+    .reviews-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #1A1A1A;
+      margin-bottom: 10px;
+    }
+
+    .reviews-header p {
+      color: #666;
+      font-size: 1.05rem;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* Slider Container */
+    .review-slider-container {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 60px;
+    }
+
+    .review-slider-viewport {
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    .review-slider-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .review-card-wrapper {
+      min-width: 100%;
+      padding: 0 10px;
+      transition: filter 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+      filter: blur(3px);
+      opacity: 0.4;
+      transform: scale(0.92);
+    }
+
+    .review-card-wrapper.active {
+      filter: blur(0);
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .review-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 45px 40px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+      border: 1px solid #f0f0f0;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .review-card:hover {
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    }
+
+    .review-quote-icon {
+      font-size: 4rem;
+      color: #D4AF37;
+      opacity: 0.2;
+      line-height: 1;
+      margin-bottom: 15px;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .review-stars {
+      display: flex;
+      justify-content: center;
+      gap: 5px;
+      margin-bottom: 18px;
+    }
+
+    .review-star {
+      color: #D4AF37;
+      font-size: 1.2rem;
+    }
+
+    .review-text {
+      font-size: 1.15rem;
+      color: #444;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 25px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      max-width: 550px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .review-author-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #D4AF37, #b8960f);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .review-author-info {
+      text-align: left;
+    }
+
+    .review-author-name {
+      font-weight: 600;
+      color: #1A1A1A;
+      font-size: 1rem;
+    }
+
+    .review-author-badge {
+      font-size: 0.78rem;
+      color: #D4AF37;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .delete-review-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: 0.3s;
+      display: none;
+    }
+
+    .delete-review-btn:hover {
+      color: #e74c3c;
+    }
+
+    .owner-mode .delete-review-btn {
+      display: block;
+    }
+
+    /* Navigation Arrows */
+    .review-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #FFFFFF;
+      border: 2px solid #eee;
+      color: #1A1A1A;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.3rem;
+      z-index: 5;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .review-nav:hover {
+      background: #D4AF37;
+      color: white;
+      border-color: #D4AF37;
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+    }
+
+    .review-nav.prev {
+      left: 0;
+    }
+
+    .review-nav.next {
+      right: 0;
+    }
+
+    /* Dots */
+    .review-dots-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 35px;
+    }
+
+    .review-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #ddd;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .review-dot.active {
+      background: #D4AF37;
+      width: 30px;
+      border-radius: 10px;
+    }
+
+    /* Add Review & Owner */
+    .review-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 50px;
+      flex-wrap: wrap;
+    }
+
+    .add-review-btn {
+      background: #D4AF37;
+      color: white;
+      border: none;
+      padding: 14px 35px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .add-review-btn:hover {
+      background: #b8960f;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    }
+
+    .owner-toggle-link {
+      background: none;
+      border: none;
+      color: #999;
+      cursor: pointer;
+      font-size: 0.85rem;
+      text-decoration: underline;
+      transition: 0.3s;
+    }
+
+    .owner-toggle-link:hover {
+      color: #D4AF37;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-box {
+      background: white;
+      padding: 40px 35px;
+      border-radius: 20px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+      color: #1A1A1A;
+    }
+
+    .modal-box .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #999;
+      transition: 0.3s;
+      background: none;
+      border: none;
+    }
+
+    .modal-box .close-modal:hover {
+      color: #e74c3c;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: #333;
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #eee;
+      border-radius: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      background: #FAF9F6;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: #D4AF37;
+      outline: none;
+      background: #fff;
+    }
+
+    .submit-review-btn {
+      background: #D4AF37;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      width: 100%;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    }
+
+    .submit-review-btn:hover {
+      background: #b8960f;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: #FAF9F6;
+      text-align: center;
+      padding: 70px 0;
+    }
+
+    /* Footer */
+    footer {
+      background: #1A1A1A;
+      color: #ccc;
+      padding: 50px 0 25px;
+    }
+
+    footer h3 {
+      color: #D4AF37;
+      margin-bottom: 10px;
+    }
+
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    footer a:hover {
+      color: #D4AF37;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25D366;
+      color: white;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      z-index: 99;
+      text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+      .mobile-menu.active {
+        display: flex;
+      }
+      .hero {
+        background-attachment: scroll;
+      }
+      .section-title {
+        font-size: 2rem;
+      }
+      .about-stats {
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .review-slider-container {
+        padding: 0 40px;
+      }
+      .review-card {
+        padding: 30px 25px;
+      }
+      .review-text {
+        font-size: 1rem;
+      }
+      .review-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+      }
+      .video-content h2 {
+        font-size: 2rem;
+      }
+      .insta-thumb {
+        width: 100px;
+        height: 100px;
+      }
+      .instagram-grid-preview {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/919276409795" class="whatsapp-float" target="_blank" aria-label="WhatsApp Chat">💬</a>
+
+  <!-- Header -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <img src="ramdevlogo.png"  hight="100"width="100" class="logo"></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="gallry.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contactus.html">Contact</a></li>
+      </ul>
+      <div class="header-icons">
+        <a href="https://wa.me/919276409795" class="icon-btn" target="_blank" aria-label="WhatsApp">💬</a>
+        <a href="https://instagram.com/ramdev.fashion_sachin" class="icon-btn" target="_blank" aria-label="Instagram">📷</a>
+        <button class="icon-btn music-toggle" id="musicToggle" onclick="toggleMusic()" aria-label="Music Toggle">🎵</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html"class="active">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallry.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contactus.html">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="gold" style="letter-spacing:3px;">Ramdev FASHION HOUSE</p>
+      <h1>CREATE YOUR<br>OWN STYLE</h1>
+      <p style="font-size:1.2rem; max-width:500px; margin-bottom:30px;">Premium fashion for men & kids designed to reflect confidence, personality and elegance.</p>
+      <a href="#" class="btn btn-gold">Explore Collection</a>
+      <a href="https://wa.me/919276409795" class="btn">WhatsApp</a>
+    </div>
+    <div class="scroll-indicator">⌄</div>
+  </section>
+
+  <!-- Trust Bar -->
+  <div class="trust-bar container">
+    <div class="trust-item">✓ Premium Quality</div>
+    <div class="trust-item">✓ Modern Fashion</div>
+    <div class="trust-item">✓ Men & Kids Collection</div>
+    <div class="trust-item">✓ Trusted Service</div>
+    <div class="trust-item">✓ Custom Orders</div>
+  </div>
+
+  <!-- Featured Collections -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Featured Collections</h2>
+      <p class="section-subtitle">Discover fashion crafted for every occasion</p>
+      <div class="grid">
+        <div class="collection-card">
+           <a href="shop.html" target="_blank">
+          <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400" alt="Shirts Collection" loading="lazy"></a>
+          <h3>Shirts</h3>
+        </div>
+        <div class="collection-card">
+           <a href="shop.html" target="_blank">
+          <img src="https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400" alt="Pants Collection" loading="lazy"></a>
+          <h3>Pants</h3>
+        </div>
+        <div class="collection-card">
+           <a href="shop.html" target="_blank">
+          <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400" alt="Jeans Collection" loading="lazy"></a>
+          <h3>Jeans</h3>
+        </div>
+        <div class="collection-card">
+           <a href="shop.html" target="_blank">
+          <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400" alt="T-Shirts Collection" loading="lazy"></a>
+          <h3>T-Shirts</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Arrivals -->
+  <section class="bg-soft">
+    <div class="container">
+      <h2 class="section-title">Latest Arrivals</h2>
+      <p class="section-subtitle">Fresh styles just landed for the modern you</p>
+      <div class="slider-container">
+        <div class="slider-card">
+          <a href="shop.html" target="_blank">
+          <img src="ramdevphotos/x.jpeg" alt="Linen Shirt" loading="lazy"></a>
+          <h4> Shirt</h4>
+          <p class="gold">New Collection</p>
+        </div>
+        <div class="slider-card">
+           <a href="shop.html" target="_blank">
+          <img src="ramdevphotos/a.png" alt="Slim Jeans" loading="lazy"></a>
+          <h4>Slim shirt</h4>
+          <p class="gold">Trending</p>
+        </div>
+        <div class="slider-card">
+           <a href="shop.html" target="_blank">
+          <img src="ramdevphotos/v.jpeg" alt="Leather Shoes" loading="lazy"></a>
+          <h4>cheks shirt</h4>
+          <p class="gold">Premium</p>
+        </div>
+        <div class="slider-card">
+           <a href="shop.html" target="_blank">
+          <img src="ramdevphotos/a.png" alt="Cotton T-Shirt" loading="lazy"></a>
+          <h4>Cotton half-Shirt</h4>
+          <p class="gold">Essential</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Brand -->
+  <section>
+    <div class="container" style="display:flex; flex-wrap:wrap; gap:50px; align-items:center;">
+      <div style="flex:1;">
+        <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=600" alt="Luxury Fashion" style="width:100%; border-radius:12px;" loading="lazy">
+      </div>
+      <div style="flex:1;">
+        <h2>About Ramdev Fashion House</h2>
+        <p style="margin:20px 0; color:#555;">We create premium fashion experiences for men and kids through quality craftsmanship, modern styling and attention to detail. Every piece is designed to make you feel confident and elegant.</p>
+        <div class="about-stats">
+          <div><h3 class="gold">100%</h3><p>Premium Quality</p></div>
+          <div><h3 class="gold">Fashion</h3><p>Focused</p></div>
+          <div><h3 class="gold">98%</h3><p>Satisfaction</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fashion Gallery Preview -->
+  <section class="bg-soft">
+    <div class="container">
+      <h2 class="section-title">Fashion Gallery</h2>
+      <p class="section-subtitle">A glimpse into our world of style</p>
+      <div class="masonry-grid">
+        <div class="masonry-item">
+          <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400" alt="Men Style" loading="lazy">
+        </div>
+        <div class="masonry-item">
+          <img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400" alt="Kids Fashion" loading="lazy">
+        </div>
+        <div class="masonry-item">
+          <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=400" alt="Custom Design" loading="lazy">
+        </div>
+        <div class="masonry-item">
+          <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=400" alt="Fashion Detail" loading="lazy">
+        </div>
+      </div>
+      <div style="text-align:center; margin-top:30px;">
+        <a href="#" class="btn">View Full Gallery</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+      <p class="section-subtitle">What makes Ramdev Fashion House special</p>
+      <div class="grid">
+        <div style="text-align:center; padding:20px;">
+          <div style="font-size:2.5rem;">🧵</div>
+          <h3>Premium Materials</h3>
+          <p>Handpicked fabrics for luxury feel.</p>
+        </div>
+        <div style="text-align:center; padding:20px;">
+          <div style="font-size:2.5rem;">✨</div>
+          <h3>Modern Designs</h3>
+          <p>Trend-focused fashion collections.</p>
+        </div>
+        <div style="text-align:center; padding:20px;">
+          <div style="font-size:2.5rem;">🎯</div>
+          <h3>Attention to Detail</h3>
+          <p>Every stitch tells a story.</p>
+        </div>
+        <div style="text-align:center; padding:20px;">
+          <div style="font-size:2.5rem;">❤️</div>
+          <h3>Customer First</h3>
+          <p>Your satisfaction is our priority.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== INSTAGRAM VIDEO SECTION ==================== -->
+  <section class="instagram-video-section">
+    <!-- Background Video -->
+    <video class="video-background" autoplay loop muted playsinline>
+      <source src="https://videos.pexels.com/video-files/3255275/3255275-uhd_2560_1440_25fps.mp4" type="video/mp4">
+      <!-- Fallback image agar video load na ho -->
+    </video>
+    <div class="video-overlay"></div>
+
+    <div class="video-content container">
+      <span class="section-label">Follow Our Journey</span>
+      <h2>Style In Motion</h2>
+      <p>Get inspired by our latest fashion stories, behind-the-scenes moments, and exclusive collections on Instagram</p>
+      
+      <a href="https://instagram.com/bdbros_official09" target="_blank" class="instagram-handle">
+        📷 @Ramdev.fashion_sachin
+      </a>
+
+      <!-- Instagram Preview Thumbnails -->
+      <div class="instagram-grid-preview">
+        <div class="insta-thumb">
+          <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=200" alt="Fashion post 1" loading="lazy">
+        </div>
+        <div class="insta-thumb">
+          <img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=200" alt="Fashion post 2" loading="lazy">
+        </div>
+        <div class="insta-thumb">
+          <img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=200" alt="Fashion post 3" loading="lazy">
+        </div>
+        <div class="insta-thumb">
+          <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=200" alt="Fashion post 4" loading="lazy">
+        </div>
+        <div class="insta-thumb">
+          <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=200" alt="Fashion post 5" loading="lazy">
+        </div>
+      </div>
+
+      <a href="https://instagram.com/ramdev.fashion_sachin" target="_blank" class="btn btn-white">Follow On Instagram</a>
+    </div>
+  </section>
+
+  <!-- ==================== PROFESSIONAL REVIEW SECTION ==================== -->
+  <section class="reviews-section" id="reviewsSection">
+    <div class="container">
+      <div class="reviews-header">
+        <span class="section-label">Testimonials</span>
+        <h2>What Our Clients Say</h2>
+        <p>Real feedback from our valued customers who trust B & D Fashion House</p>
+      </div>
+
+      <!-- Review Slider -->
+      <div class="review-slider-container" id="reviewSliderContainer">
+        <button class="review-nav prev" onclick="changeSlide(-1)" aria-label="Previous review">‹</button>
+        <button class="review-nav next" onclick="changeSlide(1)" aria-label="Next review">›</button>
+        <div class="review-slider-viewport">
+          <div class="review-slider-track" id="reviewSliderTrack">
+            <!-- Reviews rendered by JS -->
+          </div>
+        </div>
+        <div class="review-dots-container" id="reviewDotsContainer"></div>
+      </div>
+
+      <!-- Actions -->
+      <div class="review-actions">
+        <button class="add-review-btn" onclick="openAddReviewModal()">
+          ✍️ Write a Review
+        </button>
+        <button class="owner-toggle-link" onclick="toggleOwnerMode()" id="ownerToggleLink">
+          🔒 Owner Access
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Add Review Modal -->
+  <div class="modal-overlay" id="addReviewModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeAddReviewModal()">&times;</button>
+      <h3>Share Your Experience</h3>
+      <form id="addReviewForm" onsubmit="submitReview(event)">
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="reviewName" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label>Rating *</label>
+          <select id="reviewStars" required>
+            <option value="">Select your rating</option>
+            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+            <option value="4">⭐⭐⭐⭐ Very Good</option>
+            <option value="3">⭐⭐⭐ Good</option>
+            <option value="2">⭐⭐ Average</option>
+            <option value="1">⭐ Poor</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Your Feedback *</label>
+          <textarea id="reviewText" rows="4" placeholder="Tell us about your experience with B & D Fashion House..." required></textarea>
+        </div>
+        <button type="submit" class="submit-review-btn">Submit Review</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Owner Password Modal -->
+  <div class="modal-overlay" id="ownerPasswordModal">
+    <div class="modal-box">
+      <button class="close-modal" onclick="closeOwnerPasswordModal()">&times;</button>
+      <h3>Owner Access</h3>
+      <p style="text-align:center; color:#666; margin-bottom:20px;">Enter password to manage reviews</p>
+      <div class="form-group">
+        <input type="password" id="ownerPasswordInput" placeholder="Enter password">
+      </div>
+      <button class="submit-review-btn" onclick="verifyOwnerPassword()">Login</button>
+      <p style="font-size:0.8rem; color:#999; margin-top:10px; text-align:center;">Default: admin123</p>
+    </div>
+  </div>
+
+  <!-- Contact CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready To Upgrade Your Style?</h2>
+      <p style="margin:20px 0; color:#555;">Explore premium fashion crafted for confidence and everyday elegance.</p>
+      <a href="https://wa.me/919276409795" class="btn btn-gold" target="_blank">WhatsApp Us</a>
+      <a href="#" class="btn">Explore Collection</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
+      <div>
+        <h3>ramdev Fashion</h3>
+        <p>Create Your Own Style</p>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p>📞 +91 9276409795</p>
+      </div>
+      <div>
+        <h3>Follow Us</h3>
+        <a href="https://instagram.com/ramdev.fashion_sachin" target="_blank">📷 Instagram</a>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="index.html">Home</a></p>
+        <p><a href="shop.html">Shop</a></p>
+        <p><a href="gallry.html">Gallery</a></p>
+      </div>
+    </div>
+    <p style="text-align:center; margin-top:30px; border-top:1px solid #333; padding-top:20px;">© 2025 Ramdev Fashion House. All rights reserved.</p>
+  </footer>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop preload="none">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // ========== DATA & STORAGE ==========
+    const defaultReviews = [
+      { name: "Rajesh Mehta", stars: 5, text: "B & D Fashion House exceeded my expectations. The quality of their shirts is outstanding, and the custom stitching fits perfectly. Highly recommended for premium men's fashion." },
+      { name: "Priya Sharma", stars: 5, text: "I ordered kids' collection for my son's birthday. The fabric quality and finishing were exceptional. My son looked absolutely stylish. Thank you B & D team!" },
+      { name: "Amit Desai", stars: 5, text: "Best fashion house for men's clothing in Surat. Their jeans collection is premium quality at great prices. The attention to detail is remarkable." },
+      { name: "Sneha Kapoor", stars: 4, text: "Loved the shopping experience. The staff was very helpful in guiding me through the kids' collection. Only suggestion: more color options would be great!" },
+      { name: "Vikram Rathod", stars: 5, text: "The leather shoes I purchased are incredibly comfortable and look premium. I've received many compliments. B & D is now my go-to fashion brand." }
+    ];
+
+    const STORAGE_KEY = 'bdfashion_pro_reviews';
+    const OWNER_KEY = 'bdfashion_owner_session';
+    const OWNER_PASSWORD = 'anmol@9090';
+
+    function loadReviews() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) return JSON.parse(stored);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(defaultReviews));
+      return [...defaultReviews];
+    }
+
+    function saveReviews(arr) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(arr));
+    }
+
+    let reviews = loadReviews();
+    let currentSlide = 0;
+    let isOwner = localStorage.getItem(OWNER_KEY) === 'true';
+    let autoSlideInterval;
+
+    // ========== RENDER SLIDER ==========
+    const track = document.getElementById('reviewSliderTrack');
+    const dotsContainer = document.getElementById('reviewDotsContainer');
+    const sliderContainer = document.getElementById('reviewSliderContainer');
+
+    function getInitials(name) {
+      return name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    }
+
+    function renderSlider() {
+      track.innerHTML = '';
+      dotsContainer.innerHTML = '';
+
+      if (reviews.length === 0) {
+        track.innerHTML = `<div class="review-card-wrapper active" style="min-width:100%;"><div class="review-card"><p style="color:#999;">No reviews yet. Be the first to share your experience!</p></div></div>`;
+        return;
+      }
+
+      reviews.forEach((review, index) => {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'review-card-wrapper';
+        if (index === currentSlide) wrapper.classList.add('active');
+
+        wrapper.innerHTML = `
+          <div class="review-card">
+            ${isOwner ? `<button class="delete-review-btn" onclick="deleteReview(${index})" title="Delete review">🗑️</button>` : ''}
+            <div class="review-quote-icon">"</div>
+            <div class="review-stars">${'<span class="review-star">⭐</span>'.repeat(review.stars)}</div>
+            <p class="review-text">"${review.text}"</p>
+            <div class="review-author">
+              <div class="review-author-avatar">${getInitials(review.name)}</div>
+              <div class="review-author-info">
+                <div class="review-author-name">${review.name}</div>
+                <div class="review-author-badge">✅ Verified Buyer</div>
+              </div>
+            </div>
+          </div>
+        `;
+        track.appendChild(wrapper);
+
+        const dot = document.createElement('div');
+        dot.className = 'review-dot';
+        if (index === currentSlide) dot.classList.add('active');
+        dot.onclick = () => goToSlide(index);
+        dotsContainer.appendChild(dot);
+      });
+
+      updateSliderPosition();
+    }
+
+    function updateSliderPosition() {
+      track.style.transform = `translateX(-${currentSlide * 100}%)`;
+      const wrappers = document.querySelectorAll('.review-card-wrapper');
+      const dots = document.querySelectorAll('.review-dot');
+
+      wrappers.forEach((w, i) => {
+        w.classList.toggle('active', i === currentSlide);
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('active', i === currentSlide);
+      });
+
+      if (isOwner) {
+        sliderContainer.classList.add('owner-mode');
+      } else {
+        sliderContainer.classList.remove('owner-mode');
+      }
+    }
+
+    function changeSlide(dir) {
+      if (reviews.length === 0) return;
+      currentSlide += dir;
+      if (currentSlide < 0) currentSlide = reviews.length - 1;
+      if (currentSlide >= reviews.length) currentSlide = 0;
+      updateSliderPosition();
+      resetAutoSlide();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSliderPosition();
+      resetAutoSlide();
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      autoSlideInterval = setInterval(() => {
+        if (reviews.length > 1) changeSlide(1);
+      }, 5000);
+    }
+
+    // ========== ADD REVIEW ==========
+    function openAddReviewModal() {
+      document.getElementById('addReviewModal').classList.add('active');
+    }
+
+    function closeAddReviewModal() {
+      document.getElementById('addReviewModal').classList.remove('active');
+    }
+
+    function submitReview(event) {
+      event.preventDefault();
+      const name = document.getElementById('reviewName').value.trim();
+      const stars = parseInt(document.getElementById('reviewStars').value);
+      const text = document.getElementById('reviewText').value.trim();
+
+      if (!name || !stars || !text) return;
+
+      reviews.push({ name, stars, text });
+      saveReviews(reviews);
+      closeAddReviewModal();
+      document.getElementById('addReviewForm').reset();
+      currentSlide = reviews.length - 1;
+      renderSlider();
+      resetAutoSlide();
+    }
+
+    // ========== DELETE REVIEW ==========
+    function deleteReview(index) {
+      if (!isOwner) return;
+      if (confirm('Are you sure you want to permanently delete this review?')) {
+        reviews.splice(index, 1);
+        saveReviews(reviews);
+        if (currentSlide >= reviews.length) currentSlide = Math.max(0, reviews.length - 1);
+        renderSlider();
+        resetAutoSlide();
+      }
+    }
+
+    // ========== OWNER MODE ==========
+    function toggleOwnerMode() {
+      if (isOwner) {
+        isOwner = false;
+        localStorage.setItem(OWNER_KEY, 'false');
+        document.getElementById('ownerToggleLink').textContent = '🔒 Owner Access';
+        renderSlider();
+      } else {
+        document.getElementById('ownerPasswordModal').classList.add('active');
+      }
+    }
+
+    function closeOwnerPasswordModal() {
+      document.getElementById('ownerPasswordModal').classList.remove('active');
+    }
+
+    function verifyOwnerPassword() {
+      const input = document.getElementById('ownerPasswordInput').value;
+      if (input === OWNER_PASSWORD) {
+        isOwner = true;
+        localStorage.setItem(OWNER_KEY, 'true');
+        document.getElementById('ownerToggleLink').textContent = '🔓 Owner Logout';
+        closeOwnerPasswordModal();
+        document.getElementById('ownerPasswordInput').value = '';
+        renderSlider();
+        resetAutoSlide();
+      } else {
+        alert('Incorrect password! Please try again.');
+      }
+    }
+
+    // ========== INIT ==========
+    function initReviews() {
+      if (isOwner) {
+        document.getElementById('ownerToggleLink').textContent = '🔓 Owner Logout';
+      }
+      renderSlider();
+      resetAutoSlide();
+    }
+
+    // ========== HEADER & MUSIC ==========
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => mobileMenu.classList.toggle('active'));
+
+    let musicPlaying = false;
+    const bgMusic = document.getElementById('bgMusic');
+    function toggleMusic() {
+      if (musicPlaying) {
+        bgMusic.pause();
+        document.getElementById('musicToggle').textContent = '🎵';
+      } else {
+        bgMusic.play().catch(() => {});
+        document.getElementById('musicToggle').textContent = '🔊';
+      }
+      musicPlaying = !musicPlaying;
+    }
+
+    // Close modals on outside click
+    window.onclick = function(event) {
+      if (event.target === document.getElementById('addReviewModal')) closeAddReviewModal();
+      if (event.target === document.getElementById('ownerPasswordModal')) closeOwnerPasswordModal();
+    };
+
+    // Keyboard navigation for slider
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') changeSlide(-1);
+      if (e.key === 'ArrowRight') changeSlide(1);
+    });
+
+    // Start everything
+    initReviews();
+  </script>
+</body>
+</html>

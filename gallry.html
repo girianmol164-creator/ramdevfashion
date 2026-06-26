@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="ramdev fashion House – Premium men's & kids' fashion. Experience luxury style with our AI Smart Mirror™ virtual try-on.">
+  <meta name="keywords" content="fashion gallery, men fashion, kids fashion, luxury lookbook, ramdev Fashion House, AI Smart Mirror, virtual try-on">
+  <meta name="author" content="ramdev  Fashion House">
+  <title>ramdev Fashion House | Luxury Fashion Gallery – AI Smart Mirror™</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Swiper for horizontal slider -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #FFFFFF;
+      color: #1A1A1A;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, .playfair { font-family: 'Playfair Display', serif; font-weight: 600; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 40px; }
+    .gold { color: #D4AF37; }
+    .btn {
+      display: inline-block; padding: 14px 36px; font-weight: 500; letter-spacing: 1.5px;
+      text-transform: uppercase; border: 2px solid #D4AF37; background: transparent;
+      color: #1A1A1A; cursor: pointer; transition: 0.3s; text-decoration: none;
+      font-size: 0.85rem; border-radius: 40px;
+    }
+    .btn-gold { background: #D4AF37; color: white; border-color: #D4AF37; }
+    .btn-gold:hover, .btn:hover { background: #D4AF37; color: white; transform: translateY(-3px); }
+    .whatsapp-float {
+      position: fixed; bottom: 25px; right: 25px; background: #25D366; color: white;
+      width: 58px; height: 58px; border-radius: 50%; display: flex; align-items: center;
+      justify-content: center; font-size: 1.8rem; z-index: 99; text-decoration: none;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    header {
+      position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px); border-bottom: 1px solid #eee; padding: 15px 0;
+    }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; letter-spacing: 2px; text-decoration: none; color: #1A1A1A; }
+    .logo span { color: #D4AF37; }
+    .nav-links { display: flex; gap: 35px; list-style: none; }
+    .nav-links a { color: #1A1A1A; text-decoration: none; font-weight: 500; transition: 0.3s; }
+    .nav-links a:hover { color: #D4AF37; }
+    .hamburger { display: none; background: none; border: none; font-size: 2rem; cursor: pointer; }
+    .mobile-menu { display: none; flex-direction: column; background: white; padding: 20px; }
+    
+    /* Section 1: Hero Lookbook */
+    .hero-lookbook {
+      height: 85vh; display: flex; align-items: center; justify-content: center; text-align: center;
+      background: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1600') center/cover no-repeat;
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255,255,255,0.75);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; }
+    .hero-content h1 { font-size: 4rem; line-height: 1.2; margin-bottom: 20px; }
+    
+    /* Section 2: Featured Collections - Magazine Style */
+    .featured-collections { padding: 80px 0; background: #FAF9F6; }
+    .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; letter-spacing: -0.5px; }
+    .featured-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+    }
+    .featured-card-large {
+      grid-row: span 2; position: relative; border-radius: 24px; overflow: hidden;
+      height: 500px;
+    }
+    .featured-card-small { position: relative; border-radius: 24px; overflow: hidden; height: 235px; }
+    .featured-card-large img, .featured-card-small img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .featured-card-large:hover img, .featured-card-small:hover img { transform: scale(1.05); }
+    .featured-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 30px; color: white;
+    }
+    .featured-overlay h3 { font-size: 1.8rem; color: #D4AF37; }
+    .featured-grid-right { display: flex; flex-direction: column; gap: 30px; }
+    
+    /* Section 3: Trending Looks - 4 Column */
+    .trending { padding: 80px 0; }
+    .trending-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; }
+    .trend-card {
+      position: relative; border-radius: 20px; overflow: hidden; height: 380px;
+      cursor: pointer;
+    }
+    .trend-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .trend-card:hover img { transform: scale(1.05); }
+    .trend-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8));
+      padding: 25px; color: white; opacity: 0; transition: 0.4s; text-align: center;
+    }
+    .trend-card:hover .trend-overlay { opacity: 1; }
+    .trend-overlay h4 { color: #D4AF37; font-size: 1.2rem; }
+    
+    /* Section 4: Style Stories - Zig Zag */
+    .style-stories { padding: 80px 0; background: #FFFFFF; }
+    .story-row {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 60px;
+    }
+    .story-row.reverse { direction: rtl; }
+    .story-row.reverse .story-text { direction: ltr; }
+    .story-image { height: 500px; overflow: hidden; }
+    .story-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+    .story-image:hover img { transform: scale(1.02); }
+    .story-text {
+      display: flex; flex-direction: column; justify-content: center; padding: 60px;
+      background: #FAF9F6;
+    }
+    .story-text h3 { font-size: 2.2rem; margin-bottom: 20px; }
+    .story-text .gold-text { color: #D4AF37; letter-spacing: 2px; margin-bottom: 15px; }
+    
+    /* Section 5: AI Smart Mirror */
+    .ai-mirror {
+      background: linear-gradient(135deg, #1A1A1A 0%, #2A2A2A 100%);
+      padding: 100px 0; text-align: center; color: white;
+    }
+    .ai-mirror h2 { font-size: 3rem; color: #D4AF37; }
+    .ai-mirror p { max-width: 600px; margin: 20px auto; font-size: 1.1rem; }
+    
+    /* Section 6: Instagram Wall */
+    .instagram-wall { padding: 80px 0; background: #FAF9F6; }
+    .insta-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .insta-card {
+      position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1/1;
+      cursor: pointer;
+    }
+    .insta-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.4s; }
+    .insta-overlay {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center;
+      gap: 20px; opacity: 0; transition: 0.3s; color: white;
+    }
+    .insta-card:hover .insta-overlay { opacity: 1; }
+    .insta-card:hover img { transform: scale(1.05); }
+    
+    /* Section 7: Customer Style Showcase - Masonry */
+    .customer-showcase { padding: 80px 0; }
+    .masonry-grid { columns: 3 280px; column-gap: 25px; }
+    .masonry-item {
+      break-inside: avoid; margin-bottom: 25px; border-radius: 20px; overflow: hidden;
+      cursor: pointer; position: relative;
+    }
+    .masonry-item img { width: 100%; display: block; transition: 0.4s; }
+    .masonry-item:hover img { transform: scale(1.02); }
+    .customer-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      padding: 20px; color: white; opacity: 0; transition: 0.3s;
+    }
+    .masonry-item:hover .customer-overlay { opacity: 1; }
+    
+    /* Section 8: Latest Arrivals - Horizontal Slider */
+    .latest-arrivals { padding: 80px 0; background: #FAF9F6; overflow: hidden; }
+    .swiper { width: 100%; padding: 20px 0; }
+    .swiper-slide {
+      width: 280px; background: white; border-radius: 20px; overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s;
+    }
+    .swiper-slide:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+    .product-slide img { width: 100%; height: 320px; object-fit: cover; }
+    .product-info { padding: 15px; text-align: center; }
+    .product-badge {
+      display: inline-block; padding: 3px 12px; background: #D4AF37; color: white;
+      border-radius: 20px; font-size: 0.7rem; margin-bottom: 8px;
+    }
+    
+    /* Section 9: Final CTA */
+    .final-cta {
+      background: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1600') center/cover no-repeat;
+      padding: 120px 0; text-align: center; position: relative;
+    }
+    .cta-overlay {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(255,255,255,0.85);
+    }
+    .cta-content { position: relative; z-index: 2; }
+    .cta-content h2 { font-size: 3rem; margin-bottom: 20px; }
+    
+    footer { background: #1A1A1A; color: #ccc; padding: 50px 25px; }
+    
+    @media (max-width: 1024px) {
+      .trending-grid { grid-template-columns: repeat(2, 1fr); }
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
+      .masonry-grid { columns: 2 250px; }
+      .featured-grid { grid-template-columns: 1fr; }
+      .story-row { grid-template-columns: 1fr; }
+      .story-row.reverse { direction: ltr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .mobile-menu.active { display: flex; }
+      .container { padding: 0 20px; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .trending-grid { grid-template-columns: 1fr; }
+      .insta-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="https://wa.me/919276409795" class="whatsapp-float" target="_blank">💬</a>
+
+  <header>
+    <div class="container header-inner">
+      <img src="ramdevlogo.png"  hight="100"width="100" class="logo"></a>
+      <ul class="nav-links">
+       <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="gallry.html"class="active">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="contactus.html">Contact</a></ul>
+      <button class="hamburger" id="hamburgerBtn">☰</button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a><a href="shop.html">Collections</a><a href="gallry.html">Gallery</a>
+      <a href="about.html">About</a><a href="contactus.html">Contact</a>
+    </div>
+  </header>
+
+  <!-- Section 1: Hero Lookbook -->
+  <section class="hero-lookbook">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <p class="gold" style="letter-spacing: 4px; margin-bottom: 20px;">Ramdev FASHION HOUSE</p>
+      <h1 class="playfair">Fashion Is Not What You Wear.<br>It's Who You Are.</h1>
+      <p style="margin: 25px 0; font-size: 1.1rem;">Discover premium men's & kids' fashion — where elegance meets confidence.</p>
+      <a href="shop.html" class="btn btn-gold">Explore Collection</a>
+      <a href="#aimirror" class="btn">Try AI Mirror</a>
+    </div>
+  </section>
+
+  <!-- Section 2: Featured Collections - Magazine Style -->
+  <section id="featured" class="featured-collections">
+    <div class="container">
+      <h2 class="section-title playfair">Featured <span class="gold">Collections</span></h2>
+      <div class="featured-grid">
+        <div class="featured-card-large">
+          <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=800" alt="Summer Collection">
+          <div class="featured-overlay"><h3>Summer Collection</h3><p>Light fabrics · Breeze style</p></div>
+        </div>
+        <div class="featured-grid-right">
+          <div class="featured-card-small">
+            <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600" alt="Casual">
+            <div class="featured-overlay"><h3>Casual Collection</h3></div>
+          </div>
+          <div class="featured-card-small">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600" alt="Premium">
+            <div class="featured-overlay"><h3>Premium Collection</h3></div>
+          </div>
+          <div class="featured-card-small">
+            <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600" alt="Kids">
+            <div class="featured-overlay"><h3>Kids Collection</h3></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Trending Looks - 4 Column -->
+  <section id="trending" class="trending">
+    <div class="container">
+      <h2 class="section-title playfair">Trending <span class="gold">Looks</span></h2>
+      <div class="trending-grid">
+        <div class="trend-card"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=500" alt="Look1"><div class="trend-overlay"><h4>Classic White Shirt</h4><p>Minimalist Style</p><span class="gold">Explore Look →</span></div></div>
+        <div class="trend-card"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" alt="Look2"><div class="trend-overlay"><h4>Distressed Denim</h4><p>Streetwear Vibe</p><span class="gold">Explore Look →</span></div></div>
+        <div class="trend-card"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" alt="Look3"><div class="trend-overlay"><h4>Premium Tee</h4><p>Daily Essential</p><span class="gold">Explore Look →</span></div></div>
+        <div class="trend-card"><img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=500" alt="Look4"><div class="trend-overlay"><h4>Blazer Edition</h4><p>Formal Power</p><span class="gold">Explore Look →</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Style Stories (Zig-Zag) -->
+  <section class="style-stories">
+    <div class="container">
+      <h2 class="section-title playfair">Style <span class="gold">Stories</span></h2>
+      <div class="story-row">
+        <div class="story-image"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=700" alt="Urban Confidence"></div>
+        <div class="story-text"><span class="gold-text">URBAN CONFIDENCE</span><h3>Street Meets Luxury</h3><p>Bold silhouettes, premium fabrics. Designed for the modern man who commands attention without saying a word.</p><a href="#" class="btn" style="margin-top:20px;">Read Story →</a></div>
+      </div>
+      <div class="story-row reverse">
+        <div class="story-image"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=700" alt="Weekend Comfort"></div>
+        <div class="story-text"><span class="gold-text">WEEKEND COMFORT</span><h3>Relaxed Elegance</h3><p>Effortless style for your downtime. Soft cottons, relaxed fits — because comfort never looked this good.</p><a href="#" class="btn" style="margin-top:20px;">Read Story →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 5: AI Smart Mirror - USP -->
+  <section id="aimirror" class="ai-mirror">
+    <div class="container">
+      <h2 class="playfair">Try Before You Buy</h2>
+      <p>Experience Fashion With Our AI Smart Mirror™ — See how clothes look on you instantly. No changing rooms needed.</p>
+      <a href="#" class="btn btn-gold" onclick="alert('AI Smart Mirror: Camera feature would launch here. Premium virtual try-on experience.'); return false;">✨ Start Virtual Try-On →</a>
+      <p style="font-size:0.8rem; margin-top:20px; opacity:0.7;">Powered by advanced body detection · Face preserved · Realistic fit</p>
+    </div>
+  </section>
+
+  <!-- Section 6: Instagram Wall -->
+  <section class="instagram-wall">
+    <div class="container">
+      <h2 class="section-title playfair">Follow Us <span class="gold">@ramdev.fashion_Sachin</span></h2>
+      <div class="insta-grid">
+        <div class="insta-card"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400" alt="insta1"><div class="insta-overlay"><span>❤️ 2.5K</span><span>💬 124</span></div></div>
+        <div class="insta-card"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400" alt="insta2"><div class="insta-overlay"><span>❤️ 1.8K</span><span>💬 89</span></div></div>
+        <div class="insta-card"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400" alt="insta3"><div class="insta-overlay"><span>❤️ 3.2K</span><span>💬 210</span></div></div>
+        <div class="insta-card"><img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=400" alt="insta4"><div class="insta-overlay"><span>❤️ 1.5K</span><span>💬 67</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 7: Customer Style Showcase - Masonry -->
+  <section class="customer-showcase">
+    <div class="container">
+      <h2 class="section-title playfair">Styled By <span class="gold">Our Customers</span></h2>
+      <div class="masonry-grid">
+        <div class="masonry-item"><img src="https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400" alt="customer1"><div class="customer-overlay"><span>⭐ 5.0 · Denim Love</span></div></div>
+        <div class="masonry-item"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" alt="customer2"><div class="customer-overlay"><span>⭐ 4.9 · Perfect Fit</span></div></div>
+        <div class="masonry-item"><img src="https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400" alt="customer3"><div class="customer-overlay"><span>⭐ 5.0 · Premium Quality</span></div></div>
+        <div class="masonry-item"><img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400" alt="customer4"><div class="customer-overlay"><span>⭐ 4.8 · Street Style</span></div></div>
+        <div class="masonry-item"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400" alt="customer5"><div class="customer-overlay"><span>⭐ 5.0 · Classic Look</span></div></div>
+        <div class="masonry-item"><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400" alt="customer6"><div class="customer-overlay"><span>⭐ 4.9 · Everyday Wear</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 8: Latest Arrivals - Horizontal Slider -->
+  <section class="latest-arrivals">
+    <div class="container">
+      <h2 class="section-title playfair">Latest <span class="gold">Arrivals</span></h2>
+    </div>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide product-slide"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400" alt="new1"><div class="product-info"><span class="product-badge">NEW</span><h4>Summer Resort Shirt</h4><p class="gold">$89</p></div></div>
+        <div class="swiper-slide product-slide"><img src="https://images.unsplash.com/photo-1490114538077-0a7f8cb49891?w=400" alt="new2"><div class="product-info"><span class="product-badge">TRENDING</span><h4>Formal Suit Jacket</h4><p class="gold">$329</p></div></div>
+        <div class="swiper-slide product-slide"><img src="https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400" alt="new3"><div class="product-info"><span class="product-badge">BESTSELLER</span><h4>Ripped Slim Jeans</h4><p class="gold">$125</p></div></div>
+        <div class="swiper-slide product-slide"><img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400" alt="new4"><div class="product-info"><span class="product-badge">NEW</span><h4>Leather Loafers</h4><p class="gold">$159</p></div></div>
+        <div class="swiper-slide product-slide"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400" alt="new5"><div class="product-info"><span class="product-badge">TRENDING</span><h4>Kids Hoodie</h4><p class="gold">$69</p></div></div>
+        <div class="swiper-slide product-slide"><img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400" alt="new6"><div class="product-info"><span class="product-badge">BESTSELLER</span><h4>Graphic Print Tee</h4><p class="gold">$39</p></div></div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <!-- Section 9: Final CTA -->
+  <section class="final-cta">
+    <div class="cta-overlay"></div>
+    <div class="container cta-content">
+      <h2 class="playfair">Ready To Upgrade <br><span class="gold">Your Style?</span></h2>
+      <p style="margin: 20px 0; font-size: 1.1rem;">Join 10,000+ happy customers who trust B&D Fashion House.</p>
+      <a href="shop.html" class="btn btn-gold">Shop Collection →</a>
+      <a href="https://wa.me/919276409795" class="btn" style="margin-left: 15px;">WhatsApp Us →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container" style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;">
+      <div><h3>B&D Fashion</h3><p>Create Your Own Style</p><p>Premium men's & kids' fashion since 2015</p></div>
+      <div><p>📞 +91 9276409795</p><p>✉️ girianmol164@gmail.com</p></div>
+      <div><a href="#" style="color:#ccc;">📷 Instagram</a><br><a href="#" style="color:#ccc;">📘 Facebook</a></div>
+    </div>
+    <p style="text-align:center; margin-top:30px; border-top:1px solid #333; padding-top:20px;">© 2025 ramdev Fashion House. Luxury Fashion Destination.</p>
+  </footer>
+
+  <script>
+    // Mobile Menu
+    document.getElementById('hamburgerBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('active');
+    });
+    
+    // Initialize Swiper for Latest Arrivals
+    const swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      breakpoints: {
+        640: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 },
+      },
+      loop: true,
+      autoplay: { delay: 3000, disableOnInteraction: false },
+    });
+    
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

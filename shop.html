@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="Shop premium men's & kids' fashion at Ramdev Fashion House. Shirts, pants, jeans, shoes, t-shirts. Luxury quality. WhatsApp +91 9276409795">
+  <title>Shop | ramdev Fashion House – Premium Men's & Kids' Fashion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:#FFFFFF; color:#1A1A1A; line-height:1.6; overflow-x:hidden; }
+    h1,h2,h3,.playfair { font-family:'Playfair Display',serif; font-weight:600; }
+    .container { max-width:1300px; margin:0 auto; padding:0 25px; }
+    .gold { color:#D4AF37; }
+    .bg-soft { background:#FAF9F6; }
+    .btn { display:inline-block; padding:14px 34px; font-weight:500; letter-spacing:1px; text-transform:uppercase; border:2px solid #D4AF37; background:transparent; color:#1A1A1A; cursor:pointer; transition:0.3s; text-decoration:none; font-size:0.9rem; border-radius:4px; margin:5px; }
+    .btn-gold { background:#D4AF37; color:white; border:2px solid #D4AF37; }
+    .btn-white { border:2px solid white; color:white; }
+    .btn:hover { background:#D4AF37; color:white; }
+    .btn-white:hover { background:white; color:#1A1A1A; }
+    .whatsapp-float { position:fixed; bottom:25px; right:25px; background:#25D366; color:white; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.8rem; z-index:99; text-decoration:none; box-shadow:0 8px 25px rgba(0,0,0,0.15); }
+    .scroll-top { position:fixed; bottom:95px; right:25px; background:#D4AF37; color:#1A1A1A; width:44px; height:44px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; z-index:98; opacity:0; transition:0.3s; font-weight:bold; border:none; }
+    .scroll-top.show { opacity:1; }
+    header { position:sticky; top:0; z-index:100; background:rgba(255,255,255,0.85); backdrop-filter:blur(12px); border-bottom:1px solid #eee; padding:15px 0; }
+    .header-inner { display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; letter-spacing:2px; color:#1A1A1A; text-decoration:none; }
+    .logo span { color:#D4AF37; }
+    .nav-links { display:flex; gap:30px; list-style:none; }
+    .nav-links a { color:#1A1A1A; text-decoration:none; font-weight:500; transition:0.3s; }
+    .nav-links a:hover { color:#D4AF37; }
+    .hamburger { display:none; background:none; border:none; font-size:2rem; cursor:pointer; }
+    .mobile-menu { display:none; flex-direction:column; background:white; padding:20px; }
+    .mobile-menu a { padding:12px 0; text-decoration:none; color:#1A1A1A; border-bottom:1px solid #eee; }
+    .shop-hero { position:relative; height:70vh; display:flex; align-items:center; overflow:hidden; }
+    .hero-video { position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:0; }
+    .hero-video-overlay { position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.75); z-index:1; }
+    .shop-hero-content { position:relative; z-index:2; max-width:650px; }
+    .shop-hero-content h1 { font-size:clamp(2.5rem,6vw,4rem); line-height:1.2; margin-bottom:15px; }
+    .shop-hero-content p { font-size:1.1rem; margin-bottom:25px; color:#333; }
+    .filter-bar { position:sticky; top:70px; z-index:50; background:white; padding:15px 0; border-bottom:1px solid #eee; display:flex; flex-wrap:wrap; gap:15px; align-items:center; }
+    .filter-bar select, .filter-bar input { padding:12px 18px; border:1px solid #ddd; border-radius:30px; font-family:'Poppins',sans-serif; font-size:0.9rem; background:#FAF9F6; transition:0.3s; }
+    .filter-bar select:focus, .filter-bar input:focus { border-color:#D4AF37; outline:none; }
+    .category-nav { display:flex; flex-wrap:wrap; gap:12px; margin:30px 0; justify-content:center; }
+    .category-chip { padding:10px 22px; border:1px solid #ddd; border-radius:30px; cursor:pointer; transition:0.3s; font-weight:500; font-size:0.9rem; background:white; }
+    .category-chip:hover, .category-chip.active { background:#D4AF37; color:white; border-color:#D4AF37; }
+    .product-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(260px,1fr)); gap:30px; margin:40px 0; }
+    .product-card { background:white; border-radius:16px; overflow:hidden; border:1px solid #eee; transition:0.4s; position:relative; }
+    .product-card:hover { border-color:#D4AF37; box-shadow:0 20px 45px rgba(0,0,0,0.08); transform:translateY(-6px); }
+    .product-card img { width:100%; height:300px; object-fit:cover; transition:0.5s; }
+    .product-card:hover img { transform:scale(1.06); }
+    .product-info { padding:20px; }
+    .product-info h4 { font-size:1.1rem; margin-bottom:5px; }
+    .price { font-weight:700; color:#D4AF37; font-size:1.2rem; }
+    .rating { color:#D4AF37; margin:5px 0; }
+    .badge { position:absolute; top:12px; left:12px; background:#D4AF37; color:white; padding:5px 12px; border-radius:20px; font-size:0.75rem; font-weight:600; }
+    .quick-view-btn { position:absolute; top:12px; right:12px; background:white; border:none; border-radius:50%; width:42px; height:42px; cursor:pointer; opacity:0; transition:0.3s; box-shadow:0 5px 20px rgba(0,0,0,0.1); font-size:1.1rem; display:flex; align-items:center; justify-content:center; }
+    .product-card:hover .quick-view-btn { opacity:1; }
+    .trending-slider { display:flex; gap:25px; overflow-x:auto; padding:20px 0 40px; scroll-snap-type:x mandatory; }
+    .trending-card { min-width:260px; background:white; border-radius:16px; padding:15px; scroll-snap-align:start; border:1px solid #eee; transition:0.3s; }
+    .trending-card:hover { border-color:#D4AF37; box-shadow:0 10px 30px rgba(0,0,0,0.06); }
+    .trending-card img { width:100%; height:220px; object-fit:cover; border-radius:10px; }
+    .modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:200; justify-content:center; align-items:center; backdrop-filter:blur(4px); }
+    .modal.active { display:flex; }
+    .modal-content { background:white; padding:35px; border-radius:24px; max-width:520px; width:90%; position:relative; text-align:center; }
+    .modal-content img { width:100%; height:300px; object-fit:cover; border-radius:16px; margin-bottom:20px; }
+    .close-modal { position:absolute; top:12px; right:20px; font-size:2rem; cursor:pointer; color:#999; background:none; border:none; }
+    .close-modal:hover { color:#e74c3c; }
+    footer { background:#1A1A1A; color:#ccc; padding:50px 25px; }
+    footer h3 { color:#D4AF37; margin-bottom:10px; }
+    .admin-toggle { margin-left:15px; background:#D4AF37; border:none; color:white; padding:6px 14px; border-radius:30px; font-weight:500; cursor:pointer; }
+    .admin-panel { background:#f8f6f2; padding:20px; border-radius:16px; margin:20px 0; border:1px solid #e0d6c0; display:none; }
+    .admin-panel.show { display:block; }
+    .admin-panel input, .admin-panel textarea, .admin-panel select { width:100%; padding:10px; margin:6px 0; border:1px solid #ddd; border-radius:8px; }
+    .admin-panel .btn { padding:10px 20px; }
+    .admin-product-item { background:white; padding:12px; border-radius:8px; border:1px solid #ddd; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; }
+    .admin-product-item .info { flex:1; min-width:150px; }
+    .admin-product-item .actions { display:flex; gap:6px; flex-wrap:wrap; }
+    .image-preview-container { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+    .image-preview-item { position:relative; width:80px; height:80px; border-radius:8px; overflow:hidden; border:2px solid #ddd; }
+    .image-preview-item img { width:100%; height:100%; object-fit:cover; }
+    .image-preview-item .remove-img { position:absolute; top:-6px; right:-6px; background:#e74c3c; color:white; border:none; border-radius:50%; width:20px; height:20px; cursor:pointer; font-size:12px; line-height:20px; text-align:center; }
+    @media (max-width:768px) { .nav-links { display:none; } .hamburger { display:block; } .mobile-menu.active { display:flex; } .product-grid { grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); } .shop-hero { height:55vh; } }
+  </style>
+</head>
+<body>
+  <a href="https://wa.me/919276409795" class="whatsapp-float" target="_blank" aria-label="WhatsApp">💬</a>
+  <button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">↑</button>
+  
+  <header>
+    <div class="container header-inner">
+      <img src="ramdevlogo.png" height="100" width="100" class="logo" alt="Ramdev Fashion Logo">
+      <ul class="nav-links">
+        <a href="index.html">Home</a><a href="shop.html" class="active">Shop</a><a href="gallry.html">Gallery</a><a href="about.html">About</a><a href="contactus.html">Contact</a>
+      </ul>
+      <div style="display:flex;align-items:center;">
+        <button class="admin-toggle" id="adminToggleBtn">🔐 Admin</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Menu">☰</button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="gallry.html">Gallery</a><a href="about.html">About</a><a href="contactus.html">Contact</a>
+    </div>
+  </header>
+
+  <section class="shop-hero">
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source src="https://videos.pexels.com/video-files/3255275/3255275-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-overlay"></div>
+    <div class="container shop-hero-content">
+      <p class="gold" style="letter-spacing:3px;font-weight:600;">RAMDEV FASHION HOUSE</p>
+      <h1>Discover Your<br>Perfect Style</h1>
+      <p>Explore our curated collection of premium fashion for men and kids. Quality craftsmanship meets modern design.</p>
+      <a href="#productSection" class="btn btn-gold">Shop Now</a>
+      <a href="https://wa.me/919276409795" class="btn btn-white">WhatsApp</a>
+    </div>
+  </section>
+
+  <div class="container admin-panel" id="adminPanel">
+    <h3 class="playfair">👑 Owner Admin Panel</h3>
+    <div id="adminLogin" style="max-width:300px;">
+      <input type="password" id="adminPwd" placeholder="Enter owner password" style="width:100%;padding:10px;margin:6px 0;">
+      <button class="btn btn-gold" id="adminLoginBtn">Unlock</button>
+    </div>
+    <div id="adminContent" style="display:none;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin:10px 0;">
+        <input type="text" id="pName" placeholder="Product Name *">
+        <input type="number" id="pPrice" placeholder="Price *">
+        <input type="number" id="pDisc" placeholder="Discount Price">
+        <input type="text" id="pCat" placeholder="Category *">
+        <input type="text" id="pBrand" placeholder="Brand">
+        <input type="text" id="pSizes" placeholder="Sizes (S,M,L)">
+        <input type="text" id="pColors" placeholder="Colors (Red,Blue)">
+        <input type="number" id="pStock" placeholder="Stock">
+        <input type="text" id="pSku" placeholder="SKU">
+        <input type="text" id="pTags" placeholder="Tags (casual,premium)">
+        <input type="text" id="pKeywords" placeholder="Search Keywords">
+        <textarea id="pDesc" placeholder="Description" rows="2"></textarea>
+      </div>
+      
+      <!-- Image Upload Section -->
+      <div style="margin:10px 0;">
+        <label style="font-weight:500;">Product Images:</label>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0;">
+          <input type="file" id="imageUpload" accept="image/*" multiple style="padding:8px;border:1px solid #ddd;border-radius:8px;">
+          <button class="btn" style="padding:8px 18px;" id="addImagesBtn">📸 Add Images</button>
+        </div>
+        <div class="image-preview-container" id="imagePreviewContainer"></div>
+        <input type="hidden" id="pImages" value="">
+        <p style="font-size:0.8rem;color:#888;">Upload images from your device or enter URLs below (comma separated)</p>
+        <input type="text" id="pImagesUrl" placeholder="Or enter image URLs (comma separated)" style="margin-top:5px;">
+      </div>
+      
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="btn btn-gold" id="addProductBtn">➕ Add Product</button>
+        <button class="btn" id="saveProductsBtn">💾 Save Backup (JSON)</button>
+        <button class="btn" id="importBtn">📤 Import Products</button>
+      </div>
+      <hr style="margin:20px 0;">
+      <div id="adminProductList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;"></div>
+    </div>
+  </div>
+
+  <div class="container category-nav" id="categoryNav">
+    <span class="category-chip active" data-cat="All">All</span>
+    <span class="category-chip" data-cat="Shirts">Shirts</span>
+    <span class="category-chip" data-cat="Pants">Pants</span>
+    <span class="category-chip" data-cat="Jeans">Jeans</span>
+    <span class="category-chip" data-cat="Shoes">Shoes</span>
+    <span class="category-chip" data-cat="T-Shirts">T-Shirts</span>
+    <span class="category-chip" data-cat="Kids">Kids</span>
+  </div>
+
+  <div class="filter-bar container">
+    <select id="sortSelect"><option>Sort By: Newest</option><option>Price: Low to High</option><option>Price: High to Low</option><option>Popular</option></select>
+    <input type="text" placeholder="🔍 Search products..." id="searchInput">
+  </div>
+
+  <section class="container" id="productSection">
+    <h2 class="playfair" style="font-size:2.2rem;margin-bottom:5px;">Featured Collection</h2>
+    <p style="color:#666;margin-bottom:20px;">Premium picks curated for you</p>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <section class="bg-soft">
+    <div class="container"><h2 class="playfair" style="font-size:2rem;padding-top:40px;">Trending Now</h2><p style="color:#666;">What everyone's loving right now</p>
+    <div class="trending-slider" id="trendingSlider"></div></div>
+  </section>
+
+  <section class="container" style="padding:60px 0;">
+    <h2 class="playfair" style="font-size:2rem;">Latest Arrivals</h2><p style="color:#666;margin-bottom:20px;">Fresh styles just landed</p>
+    <div class="product-grid" id="newArrivalsGrid"></div>
+  </section>
+
+  <div class="modal" id="quickViewModal">
+    <div class="modal-content"><button class="close-modal" onclick="closeQuickView()">&times;</button><div id="modalBody"></div></div>
+  </div>
+
+  <footer><div class="container" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;"><div><h3>ramdev Fashion</h3><p>Create Your Own Style</p></div><div><h3>Contact</h3><p>📞 +91 9276409795</p></div><div><h3>Follow Us</h3><a href="https://instagram.com/ramdev.fashion_Sachin" style="color:#ccc;">📷 Instagram</a></div></div><p style="text-align:center;margin-top:30px;border-top:1px solid #333;padding-top:20px;">© 2025 Ramdev Fashion House. All rights reserved.</p></footer>
+
+<script>
+  // ========== PRODUCT STORAGE ==========
+  let products = [];
+  const ADMIN_PASSWORD = "ramdev2025";
+  let uploadedImages = [];
+
+  function loadProducts() {
+    const stored = localStorage.getItem('ramdev_products');
+    if (stored) {
+      try { products = JSON.parse(stored); } catch(e){ products = []; }
+    }
+    if (!products || products.length === 0) {
+      products = [
+        { id:1, name:"Classic White Shirt", cat:"Shirts", price:2499, disc:0, desc:"Premium cotton shirt with classic fit. Perfect for formal occasions.", brand:"Ramdev", sizes:"S,M,L,XL", colors:"White,Blue", stock:50, sku:"RW101", tags:"formal,classic", keywords:"white shirt formal", images:["https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400"], badge:"Bestseller", hidden:false },
+        { id:2, name:"Slim Fit Chinos", cat:"Pants", price:2999, disc:0, desc:"Comfortable slim fit chinos for everyday wear.", brand:"Ramdev", sizes:"30,32,34", colors:"Beige,Navy", stock:40, sku:"PN202", tags:"slim,casual", keywords:"chinos pants", images:["https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400"], badge:"", hidden:false },
+        { id:3, name:"Distressed Jeans", cat:"Jeans", price:3499, disc:0, desc:"Stylish distressed denim with a modern streetwear look.", brand:"Ramdev", sizes:"28,30,32,34", colors:"Blue", stock:30, sku:"JN303", tags:"trendy,street", keywords:"distressed jeans", images:["https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"], badge:"Trending", hidden:false },
+        { id:4, name:"Leather Loafers", cat:"Shoes", price:4299, disc:0, desc:"Premium leather loafers with cushioned soles for all-day comfort.", brand:"Ramdev", sizes:"7,8,9,10", colors:"Brown", stock:25, sku:"SH404", tags:"formal,leather", keywords:"loafers shoes", images:["https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400"], badge:"", hidden:false },
+        { id:5, name:"Premium Cotton Tee", cat:"T-Shirts", price:1499, disc:0, desc:"Soft premium cotton t-shirt. Available in multiple colors.", brand:"Ramdev", sizes:"S,M,L,XL", colors:"White,Black", stock:60, sku:"TS505", tags:"casual,basic", keywords:"cotton tshirt", images:["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"], badge:"New", hidden:false },
+        { id:6, name:"Linen Resort Shirt", cat:"Shirts", price:2799, disc:0, desc:"Lightweight breathable linen shirt perfect for summer.", brand:"Ramdev", sizes:"M,L,XL", colors:"White,Blue", stock:20, sku:"RS606", tags:"summer,resort", keywords:"linen shirt", images:["https://images.unsplash.com/photo-1598033129183-c4f50d736b10?w=400"], badge:"", hidden:false },
+        { id:7, name:"Slim Fit Jeans", cat:"Jeans", price:3199, disc:0, desc:"Modern slim fit jeans with stretch comfort.", brand:"Ramdev", sizes:"30,32,34", colors:"Blue", stock:35, sku:"JN707", tags:"slim,trendy", keywords:"slim jeans", images:["https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400"], badge:"Bestseller", hidden:false },
+        { id:8, name:"Formal Oxford Shoes", cat:"Shoes", price:4599, disc:0, desc:"Classic oxford shoes for the modern gentleman.", brand:"Ramdev", sizes:"7,8,9,10", colors:"Black", stock:18, sku:"SH808", tags:"formal,office", keywords:"oxford shoes", images:["https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400"], badge:"", hidden:false },
+        { id:9, name:"Graphic Print Tee", cat:"T-Shirts", price:1699, disc:0, desc:"Bold graphic print t-shirt for a street-style look.", brand:"Ramdev", sizes:"S,M,L", colors:"Black", stock:45, sku:"TS909", tags:"street,graphic", keywords:"graphic tee", images:["https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400"], badge:"New", hidden:false },
+        { id:10, name:"Tailored Dress Pants", cat:"Pants", price:3299, disc:0, desc:"Sharp tailored pants perfect for office or special events.", brand:"Ramdev", sizes:"30,32,34,36", colors:"Grey,Navy", stock:28, sku:"PN1010", tags:"formal,dress", keywords:"dress pants", images:["https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400"], badge:"", hidden:false },
+        { id:11, name:"Kids Denim Jeans", cat:"Kids", price:2499, disc:0, desc:"Durable comfortable jeans for kids.", brand:"Ramdev", sizes:"4,6,8,10", colors:"Blue", stock:40, sku:"KJ111", tags:"kids,denim", keywords:"kids jeans", images:["https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400"], badge:"Kids", hidden:false },
+        { id:12, name:"Kids Casual Shirt", cat:"Kids", price:1999, disc:0, desc:"Comfortable casual shirt for kids.", brand:"Ramdev", sizes:"4,6,8", colors:"White,Blue", stock:30, sku:"KS121", tags:"kids,casual", keywords:"kids shirt", images:["https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400"], badge:"Kids", hidden:false }
+      ];
+      saveProducts();
+    }
+  }
+
+  function saveProducts() {
+    localStorage.setItem('ramdev_products', JSON.stringify(products));
+  }
+
+  // ========== IMAGE UPLOAD FUNCTIONS ==========
+  function handleImageUpload(files) {
+    const previewContainer = document.getElementById('imagePreviewContainer');
+    const imageUrlsInput = document.getElementById('pImages');
+    
+    Array.from(files).forEach(file => {
+      if (file.size > 5 * 1024 * 1024) {
+        alert(`Image ${file.name} is too large. Please use images under 5MB.`);
+        return;
+      }
+      
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const imageData = e.target.result;
+        uploadedImages.push(imageData);
+        updateImagePreview();
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function updateImagePreview() {
+    const previewContainer = document.getElementById('imagePreviewContainer');
+    const imageUrlsInput = document.getElementById('pImages');
+    
+    previewContainer.innerHTML = '';
+    uploadedImages.forEach((imgData, index) => {
+      const div = document.createElement('div');
+      div.className = 'image-preview-item';
+      div.innerHTML = `
+        <img src="${imgData}" alt="Product image ${index + 1}">
+        <button class="remove-img" onclick="removeImage(${index})">×</button>
+      `;
+      previewContainer.appendChild(div);
+    });
+    
+    // Update hidden input with all image data
+    imageUrlsInput.value = uploadedImages.join(',');
+  }
+
+  function removeImage(index) {
+    uploadedImages.splice(index, 1);
+    updateImagePreview();
+  }
+
+  // ========== RENDER FUNCTIONS ==========
+  let currentCategory = "All";
+  let currentSort = "Newest";
+
+  function getFilteredProducts() {
+    let filtered = currentCategory === "All" ? [...products] : products.filter(p => p.cat === currentCategory);
+    filtered = filtered.filter(p => !p.hidden);
+    if (currentSort === "Price: Low to High") filtered.sort((a,b) => a.price - b.price);
+    else if (currentSort === "Price: High to Low") filtered.sort((a,b) => b.price - a.price);
+    return filtered;
+  }
+
+  function renderProductCard(p) {
+    const badge = p.badge || '';
+    const img = p.images && p.images[0] ? p.images[0] : 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400';
+    const rating = p.rating || 4;
+    return `
+      <div class="product-card">
+        ${badge ? `<span class="badge">${badge}</span>` : ''}
+        <img src="${img}" alt="${p.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400'">
+        <button class="quick-view-btn" onclick="openQuickView('${p.id}')" title="Quick View">👁️</button>
+        <div class="product-info">
+          <h4>${p.name}</h4>
+          <p style="color:#888;font-size:0.85rem;">${p.cat}</p>
+          ${p.disc && p.disc > 0 ? `<p class="price">₹${p.disc.toLocaleString()} <span style="text-decoration:line-through;color:#999;font-size:0.8rem;">₹${p.price.toLocaleString()}</span></p>` : `<p class="price">₹${p.price.toLocaleString()}</p>`}
+          <p class="rating">${'⭐'.repeat(rating)} <span style="color:#888;">(${rating})</span></p>
+          <a href="https://wa.me/919276409795?text=I'm%20interested%20in%20${encodeURIComponent(p.name)}%20-%20₹${p.disc && p.disc > 0 ? p.disc : p.price}" class="btn btn-gold" style="padding:10px 20px;font-size:0.8rem;width:100%;text-align:center;display:block;">💬 WhatsApp Inquiry</a>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderProducts() {
+    const filtered = getFilteredProducts();
+    document.getElementById('productGrid').innerHTML = filtered.map(renderProductCard).join('');
+  }
+
+  function renderTrending() {
+    const trending = products.filter(p => (p.badge === "Trending" || p.badge === "Bestseller") && !p.hidden).slice(0, 5);
+    document.getElementById('trendingSlider').innerHTML = trending.map(p => {
+      const img = p.images && p.images[0] ? p.images[0] : 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400';
+      return `<div class="trending-card">${p.badge ? `<span class="badge">${p.badge}</span>` : ''}<img src="${img}" alt="${p.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400'"><h4 style="margin-top:10px;">${p.name}</h4><p class="gold">₹${p.price.toLocaleString()}</p></div>`;
+    }).join('');
+  }
+
+  function renderNewArrivals() {
+    const newItems = products.filter(p => p.badge === "New" && !p.hidden).slice(0, 4);
+    document.getElementById('newArrivalsGrid').innerHTML = newItems.map(renderProductCard).join('');
+  }
+
+  function renderAll() {
+    renderProducts();
+    renderTrending();
+    renderNewArrivals();
+  }
+
+  // ========== QUICK VIEW ==========
+  window.openQuickView = function(id) {
+    const p = products.find(prod => prod.id === id);
+    if (!p) return;
+    const img = p.images && p.images[0] ? p.images[0] : 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400';
+    const price = p.disc && p.disc > 0 ? p.disc : p.price;
+    document.getElementById('modalBody').innerHTML = `
+      <img src="${img}" alt="${p.name}" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400'">
+      <h3 style="font-size:1.5rem;">${p.name}</h3>
+      <p style="color:#888;">${p.cat} ${p.brand ? '| '+p.brand : ''}</p>
+      <p class="price" style="font-size:1.5rem;">₹${price.toLocaleString()}${p.disc && p.disc > 0 ? ` <span style="text-decoration:line-through;color:#999;font-size:1rem;">₹${p.price.toLocaleString()}</span>` : ''}</p>
+      <p style="margin:10px 0;color:#555;">${p.desc || 'Premium quality product.'}</p>
+      ${p.sizes ? `<p><strong>Sizes:</strong> ${p.sizes}</p>` : ''}
+      ${p.colors ? `<p><strong>Colors:</strong> ${p.colors}</p>` : ''}
+      ${p.stock ? `<p><strong>Stock:</strong> ${p.stock}</p>` : ''}
+      <a href="https://wa.me/919276409795?text=I%20want%20to%20order%20${encodeURIComponent(p.name)}%20-%20₹${price}" class="btn btn-gold" style="width:100%;text-align:center;margin-top:15px;">💬 Order via WhatsApp</a>
+    `;
+    document.getElementById('quickViewModal').classList.add('active');
+  };
+
+  window.closeQuickView = function() {
+    document.getElementById('quickViewModal').classList.remove('active');
+  };
+
+  // ========== ADMIN PANEL ==========
+  let adminUnlocked = false;
+
+  document.getElementById('adminLoginBtn').addEventListener('click', function() {
+    const pwd = document.getElementById('adminPwd').value;
+    if (pwd === ADMIN_PASSWORD) {
+      adminUnlocked = true;
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminContent').style.display = 'block';
+      renderAdminList();
+    } else {
+      alert('❌ Incorrect password');
+    }
+  });
+
+  function renderAdminList() {
+    const container = document.getElementById('adminProductList');
+    if (!products.length) {
+      container.innerHTML = '<p style="color:#999;">No products added yet.</p>';
+      return;
+    }
+    container.innerHTML = products.map((p, idx) => {
+      const firstImage = p.images && p.images[0] ? p.images[0] : '';
+      return `
+      <div class="admin-product-item">
+        <div class="info">
+          ${firstImage ? `<img src="${firstImage}" style="width:40px;height:40px;object-fit:cover;border-radius:4px;float:left;margin-right:8px;" onerror="this.style.display='none'">` : ''}
+          <strong>${p.name}</strong><br>
+          <span style="color:#888;font-size:0.85rem;">${p.cat} | ₹${p.price} ${p.hidden ? '🔴 Hidden' : '🟢 Visible'}</span>
+        </div>
+        <div class="actions">
+          <button class="btn" style="padding:4px 12px;font-size:0.7rem;" onclick="editProduct(${idx})">✎</button>
+          <button class="btn" style="padding:4px 12px;font-size:0.7rem;background:#e74c3c;color:white;border-color:#e74c3c;" onclick="deleteProduct(${idx})">🗑</button>
+          <button class="btn" style="padding:4px 12px;font-size:0.7rem;" onclick="toggleHide(${idx})">${p.hidden ? 'Show' : 'Hide'}</button>
+        </div>
+      </div>
+    `}).join('');
+  }
+
+  document.getElementById('addImagesBtn').addEventListener('click', function() {
+    const fileInput = document.getElementById('imageUpload');
+    if (fileInput.files.length > 0) {
+      handleImageUpload(fileInput.files);
+      fileInput.value = ''; // Reset file input
+    } else {
+      // Check if there are URLs entered
+      const urlInput = document.getElementById('pImagesUrl');
+      if (urlInput.value.trim()) {
+        const urls = urlInput.value.split(',').map(s => s.trim()).filter(s => s);
+        uploadedImages = uploadedImages.concat(urls);
+        updateImagePreview();
+        urlInput.value = '';
+      } else {
+        alert('Please select image files or enter image URLs.');
+      }
+    }
+  });
+
+  // Also handle file input change directly
+  document.getElementById('imageUpload').addEventListener('change', function() {
+    if (this.files.length > 0) {
+      handleImageUpload(this.files);
+      this.value = '';
+    }
+  });
+
+  // Handle URL input with Enter key
+  document.getElementById('pImagesUrl').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      document.getElementById('addImagesBtn').click();
+    }
+  });
+
+  document.getElementById('addProductBtn').addEventListener('click', function() {
+    const name = document.getElementById('pName').value.trim();
+    const price = parseFloat(document.getElementById('pPrice').value);
+    const cat = document.getElementById('pCat').value.trim();
+    if (!name || !price || !cat) {
+      alert('⚠️ Product Name, Price, and Category are required!');
+      return;
+    }
+    
+    // Get images from hidden input
+    const imagesStr = document.getElementById('pImages').value;
+    let images = [];
+    if (imagesStr) {
+      images = imagesStr.split(',').map(s => s.trim()).filter(s => s);
+    }
+    // If no images uploaded, use URL input as fallback
+    if (images.length === 0) {
+      const urlInput = document.getElementById('pImagesUrl').value.trim();
+      if (urlInput) {
+        images = urlInput.split(',').map(s => s.trim()).filter(s => s);
+      }
+    }
+    if (images.length === 0) {
+      images = ['https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400'];
+    }
+    
+    const disc = parseFloat(document.getElementById('pDisc').value) || 0;
+    const brand = document.getElementById('pBrand').value.trim() || '';
+    const sizes = document.getElementById('pSizes').value.trim() || '';
+    const colors = document.getElementById('pColors').value.trim() || '';
+    const stock = parseInt(document.getElementById('pStock').value) || 0;
+    const sku = document.getElementById('pSku').value.trim() || '';
+    const tags = document.getElementById('pTags').value.trim() || '';
+    const keywords = document.getElementById('pKeywords').value.trim() || '';
+    const desc = document.getElementById('pDesc').value.trim() || '';
+
+    const newProduct = {
+      id: Date.now(),
+      name, price, disc, cat, brand, sizes, colors, stock, sku, tags, keywords, images, desc,
+      badge: '',
+      hidden: false,
+      rating: 4
+    };
+    products.push(newProduct);
+    saveProducts();
+    renderAll();
+    renderAdminList();
+    
+    // Clear form
+    ['pName','pPrice','pDisc','pCat','pBrand','pSizes','pColors','pStock','pSku','pTags','pKeywords','pImages','pDesc','pImagesUrl'].forEach(id => document.getElementById(id).value = '');
+    uploadedImages = [];
+    document.getElementById('imagePreviewContainer').innerHTML = '';
+    document.getElementById('imageUpload').value = '';
+    
+    alert('✅ Product added successfully!');
+  });
+
+  window.editProduct = function(idx) {
+    const p = products[idx];
+    const newName = prompt('Product name:', p.name);
+    if (newName !== null && newName.trim()) p.name = newName.trim();
+    const newPrice = prompt('Price:', p.price);
+    if (newPrice !== null && !isNaN(parseFloat(newPrice))) p.price = parseFloat(newPrice);
+    const newCat = prompt('Category:', p.cat);
+    if (newCat !== null && newCat.trim()) p.cat = newCat.trim();
+    const newDesc = prompt('Description:', p.desc || '');
+    if (newDesc !== null) p.desc = newDesc;
+    const newBrand = prompt('Brand:', p.brand || '');
+    if (newBrand !== null) p.brand = newBrand;
+    const newImages = prompt('Image URLs (comma separated):', p.images ? p.images.join(',') : '');
+    if (newImages !== null) {
+      p.images = newImages.split(',').map(s => s.trim()).filter(s => s);
+      if (p.images.length === 0) p.images = ['https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400'];
+    }
+    saveProducts();
+    renderAll();
+    renderAdminList();
+  };
+
+  window.deleteProduct = function(idx) {
+    if (confirm(`Delete "${products[idx].name}"?`)) {
+      products.splice(idx, 1);
+      saveProducts();
+      renderAll();
+      renderAdminList();
+    }
+  };
+
+  window.toggleHide = function(idx) {
+    products[idx].hidden = !products[idx].hidden;
+    saveProducts();
+    renderAdminList();
+    renderAll();
+  };
+
+  document.getElementById('saveProductsBtn').addEventListener('click', function() {
+    const blob = new Blob([JSON.stringify(products, null, 2)], {type:'application/json'});
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ramdev_products_backup.json';
+    a.click();
+  });
+
+  document.getElementById('importBtn').addEventListener('click', function() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+      if (e.target.files[0]) {
+        const reader = new FileReader();
+        reader.onload = (ev) => {
+          try {
+            const imported = JSON.parse(ev.target.result);
+            if (Array.isArray(imported)) {
+              products = imported;
+              saveProducts();
+              renderAll();
+              renderAdminList();
+              alert('✅ Products imported successfully!');
+            }
+          } catch(err) { alert('❌ Invalid file format'); }
+        };
+        reader.readAsText(e.target.files[0]);
+      }
+    };
+    input.click();
+  });
+
+  document.getElementById('adminToggleBtn').addEventListener('click', function() {
+    const panel = document.getElementById('adminPanel');
+    panel.classList.toggle('show');
+    if (adminUnlocked) {
+      document.getElementById('adminLogin').style.display = 'none';
+      document.getElementById('adminContent').style.display = 'block';
+      renderAdminList();
+    } else {
+      document.getElementById('adminLogin').style.display = 'block';
+      document.getElementById('adminContent').style.display = 'none';
+    }
+  });
+
+  // ========== EVENT LISTENERS ==========
+  document.querySelectorAll('.category-chip').forEach(chip => {
+    chip.addEventListener('click', function() {
+      document.querySelectorAll('.category-chip').forEach(c => c.classList.remove('active'));
+      this.classList.add('active');
+      currentCategory = this.dataset.cat;
+      renderProducts();
+    });
+  });
+
+  document.getElementById('sortSelect').addEventListener('change', function() {
+    currentSort = this.value;
+    renderProducts();
+  });
+
+  document.getElementById('searchInput').addEventListener('input', function(e) {
+    const query = e.target.value.toLowerCase();
+    const filtered = getFilteredProducts().filter(p => 
+      p.name.toLowerCase().includes(query) || 
+      (p.tags && p.tags.toLowerCase().includes(query)) || 
+      (p.keywords && p.keywords.toLowerCase().includes(query)) ||
+      (p.cat && p.cat.toLowerCase().includes(query))
+    );
+    document.getElementById('productGrid').innerHTML = filtered.map(renderProductCard).join('');
+  });
+
+  document.getElementById('hamburgerBtn').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('active');
+  });
+
+  window.addEventListener('scroll', () => {
+    document.querySelector('.scroll-top').classList.toggle('show', window.scrollY > 400);
+  });
+
+  document.getElementById('quickViewModal').addEventListener('click', function(e) {
+    if (e.target === this) closeQuickView();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeQuickView();
+  });
+
+  // ========== INIT ==========
+  loadProducts();
+  renderAll();
+</script>
+</body>
+</html>
