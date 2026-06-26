@@ -81,6 +81,7 @@
     .image-preview-item { position:relative; width:80px; height:80px; border-radius:8px; overflow:hidden; border:2px solid #ddd; }
     .image-preview-item img { width:100%; height:100%; object-fit:cover; }
     .image-preview-item .remove-img { position:absolute; top:-6px; right:-6px; background:#e74c3c; color:white; border:none; border-radius:50%; width:20px; height:20px; cursor:pointer; font-size:12px; line-height:20px; text-align:center; }
+    .no-products-msg { text-align:center; padding:40px 20px; color:#999; grid-column:1/-1; }
     @media (max-width:768px) { .nav-links { display:none; } .hamburger { display:block; } .mobile-menu.active { display:flex; } .product-grid { grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); } .shop-hero { height:55vh; } }
   </style>
 </head>
@@ -209,25 +210,32 @@
   function loadProducts() {
     const stored = localStorage.getItem('ramdev_products');
     if (stored) {
-      try { products = JSON.parse(stored); } catch(e){ products = []; }
+      try { 
+        const parsed = JSON.parse(stored);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          products = parsed;
+          return;
+        }
+      } catch(e){ 
+        console.error('Error loading products:', e);
+      }
     }
-    if (!products || products.length === 0) {
-      products = [
-        { id:1, name:"Classic White Shirt", cat:"Shirts", price:2499, disc:0, desc:"Premium cotton shirt with classic fit. Perfect for formal occasions.", brand:"Ramdev", sizes:"S,M,L,XL", colors:"White,Blue", stock:50, sku:"RW101", tags:"formal,classic", keywords:"white shirt formal", images:["https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400"], badge:"Bestseller", hidden:false },
-        { id:2, name:"Slim Fit Chinos", cat:"Pants", price:2999, disc:0, desc:"Comfortable slim fit chinos for everyday wear.", brand:"Ramdev", sizes:"30,32,34", colors:"Beige,Navy", stock:40, sku:"PN202", tags:"slim,casual", keywords:"chinos pants", images:["https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400"], badge:"", hidden:false },
-        { id:3, name:"Distressed Jeans", cat:"Jeans", price:3499, disc:0, desc:"Stylish distressed denim with a modern streetwear look.", brand:"Ramdev", sizes:"28,30,32,34", colors:"Blue", stock:30, sku:"JN303", tags:"trendy,street", keywords:"distressed jeans", images:["https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"], badge:"Trending", hidden:false },
-        { id:4, name:"Leather Loafers", cat:"Shoes", price:4299, disc:0, desc:"Premium leather loafers with cushioned soles for all-day comfort.", brand:"Ramdev", sizes:"7,8,9,10", colors:"Brown", stock:25, sku:"SH404", tags:"formal,leather", keywords:"loafers shoes", images:["https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400"], badge:"", hidden:false },
-        { id:5, name:"Premium Cotton Tee", cat:"T-Shirts", price:1499, disc:0, desc:"Soft premium cotton t-shirt. Available in multiple colors.", brand:"Ramdev", sizes:"S,M,L,XL", colors:"White,Black", stock:60, sku:"TS505", tags:"casual,basic", keywords:"cotton tshirt", images:["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"], badge:"New", hidden:false },
-        { id:6, name:"Linen Resort Shirt", cat:"Shirts", price:2799, disc:0, desc:"Lightweight breathable linen shirt perfect for summer.", brand:"Ramdev", sizes:"M,L,XL", colors:"White,Blue", stock:20, sku:"RS606", tags:"summer,resort", keywords:"linen shirt", images:["https://images.unsplash.com/photo-1598033129183-c4f50d736b10?w=400"], badge:"", hidden:false },
-        { id:7, name:"Slim Fit Jeans", cat:"Jeans", price:3199, disc:0, desc:"Modern slim fit jeans with stretch comfort.", brand:"Ramdev", sizes:"30,32,34", colors:"Blue", stock:35, sku:"JN707", tags:"slim,trendy", keywords:"slim jeans", images:["https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400"], badge:"Bestseller", hidden:false },
-        { id:8, name:"Formal Oxford Shoes", cat:"Shoes", price:4599, disc:0, desc:"Classic oxford shoes for the modern gentleman.", brand:"Ramdev", sizes:"7,8,9,10", colors:"Black", stock:18, sku:"SH808", tags:"formal,office", keywords:"oxford shoes", images:["https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400"], badge:"", hidden:false },
-        { id:9, name:"Graphic Print Tee", cat:"T-Shirts", price:1699, disc:0, desc:"Bold graphic print t-shirt for a street-style look.", brand:"Ramdev", sizes:"S,M,L", colors:"Black", stock:45, sku:"TS909", tags:"street,graphic", keywords:"graphic tee", images:["https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400"], badge:"New", hidden:false },
-        { id:10, name:"Tailored Dress Pants", cat:"Pants", price:3299, disc:0, desc:"Sharp tailored pants perfect for office or special events.", brand:"Ramdev", sizes:"30,32,34,36", colors:"Grey,Navy", stock:28, sku:"PN1010", tags:"formal,dress", keywords:"dress pants", images:["https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400"], badge:"", hidden:false },
-        { id:11, name:"Kids Denim Jeans", cat:"Kids", price:2499, disc:0, desc:"Durable comfortable jeans for kids.", brand:"Ramdev", sizes:"4,6,8,10", colors:"Blue", stock:40, sku:"KJ111", tags:"kids,denim", keywords:"kids jeans", images:["https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400"], badge:"Kids", hidden:false },
-        { id:12, name:"Kids Casual Shirt", cat:"Kids", price:1999, disc:0, desc:"Comfortable casual shirt for kids.", brand:"Ramdev", sizes:"4,6,8", colors:"White,Blue", stock:30, sku:"KS121", tags:"kids,casual", keywords:"kids shirt", images:["https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400"], badge:"Kids", hidden:false }
-      ];
-      saveProducts();
-    }
+    // Default products if nothing in storage
+    products = [
+      { id:1, name:"Classic White Shirt", cat:"Shirts", price:2499, disc:0, desc:"Premium cotton shirt with classic fit. Perfect for formal occasions.", brand:"Ramdev", sizes:"S,M,L,XL", colors:"White,Blue", stock:50, sku:"RW101", tags:"formal,classic", keywords:"white shirt formal", images:["https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400"], badge:"Bestseller", hidden:false, rating:4 },
+      { id:2, name:"Slim Fit Chinos", cat:"Pants", price:2999, disc:0, desc:"Comfortable slim fit chinos for everyday wear.", brand:"Ramdev", sizes:"30,32,34", colors:"Beige,Navy", stock:40, sku:"PN202", tags:"slim,casual", keywords:"chinos pants", images:["https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400"], badge:"", hidden:false, rating:4 },
+      { id:3, name:"Distressed Jeans", cat:"Jeans", price:3499, disc:0, desc:"Stylish distressed denim with a modern streetwear look.", brand:"Ramdev", sizes:"28,30,32,34", colors:"Blue", stock:30, sku:"JN303", tags:"trendy,street", keywords:"distressed jeans", images:["https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400"], badge:"Trending", hidden:false, rating:4 },
+      { id:4, name:"Leather Loafers", cat:"Shoes", price:4299, disc:0, desc:"Premium leather loafers with cushioned soles for all-day comfort.", brand:"Ramdev", sizes:"7,8,9,10", colors:"Brown", stock:25, sku:"SH404", tags:"formal,leather", keywords:"loafers shoes", images:["https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400"], badge:"", hidden:false, rating:4 },
+      { id:5, name:"Premium Cotton Tee", cat:"T-Shirts", price:1499, disc:0, desc:"Soft premium cotton t-shirt. Available in multiple colors.", brand:"Ramdev", sizes:"S,M,L,XL", colors:"White,Black", stock:60, sku:"TS505", tags:"casual,basic", keywords:"cotton tshirt", images:["https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400"], badge:"New", hidden:false, rating:4 },
+      { id:6, name:"Linen Resort Shirt", cat:"Shirts", price:2799, disc:0, desc:"Lightweight breathable linen shirt perfect for summer.", brand:"Ramdev", sizes:"M,L,XL", colors:"White,Blue", stock:20, sku:"RS606", tags:"summer,resort", keywords:"linen shirt", images:["https://images.unsplash.com/photo-1598033129183-c4f50d736b10?w=400"], badge:"", hidden:false, rating:4 },
+      { id:7, name:"Slim Fit Jeans", cat:"Jeans", price:3199, disc:0, desc:"Modern slim fit jeans with stretch comfort.", brand:"Ramdev", sizes:"30,32,34", colors:"Blue", stock:35, sku:"JN707", tags:"slim,trendy", keywords:"slim jeans", images:["https://images.unsplash.com/photo-1605518216938-7c31b7b14ad0?w=400"], badge:"Bestseller", hidden:false, rating:4 },
+      { id:8, name:"Formal Oxford Shoes", cat:"Shoes", price:4599, disc:0, desc:"Classic oxford shoes for the modern gentleman.", brand:"Ramdev", sizes:"7,8,9,10", colors:"Black", stock:18, sku:"SH808", tags:"formal,office", keywords:"oxford shoes", images:["https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400"], badge:"", hidden:false, rating:4 },
+      { id:9, name:"Graphic Print Tee", cat:"T-Shirts", price:1699, disc:0, desc:"Bold graphic print t-shirt for a street-style look.", brand:"Ramdev", sizes:"S,M,L", colors:"Black", stock:45, sku:"TS909", tags:"street,graphic", keywords:"graphic tee", images:["https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=400"], badge:"New", hidden:false, rating:4 },
+      { id:10, name:"Tailored Dress Pants", cat:"Pants", price:3299, disc:0, desc:"Sharp tailored pants perfect for office or special events.", brand:"Ramdev", sizes:"30,32,34,36", colors:"Grey,Navy", stock:28, sku:"PN1010", tags:"formal,dress", keywords:"dress pants", images:["https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400"], badge:"", hidden:false, rating:4 },
+      { id:11, name:"Kids Denim Jeans", cat:"Kids", price:2499, disc:0, desc:"Durable comfortable jeans for kids.", brand:"Ramdev", sizes:"4,6,8,10", colors:"Blue", stock:40, sku:"KJ111", tags:"kids,denim", keywords:"kids jeans", images:["https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400"], badge:"Kids", hidden:false, rating:4 },
+      { id:12, name:"Kids Casual Shirt", cat:"Kids", price:1999, disc:0, desc:"Comfortable casual shirt for kids.", brand:"Ramdev", sizes:"4,6,8", colors:"White,Blue", stock:30, sku:"KS121", tags:"kids,casual", keywords:"kids shirt", images:["https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=400"], badge:"Kids", hidden:false, rating:4 }
+    ];
+    saveProducts();
   }
 
   function saveProducts() {
@@ -288,6 +296,7 @@
     filtered = filtered.filter(p => !p.hidden);
     if (currentSort === "Price: Low to High") filtered.sort((a,b) => a.price - b.price);
     else if (currentSort === "Price: High to Low") filtered.sort((a,b) => b.price - a.price);
+    else if (currentSort === "Newest") filtered.sort((a,b) => b.id - a.id);
     return filtered;
   }
 
@@ -304,7 +313,7 @@
           <h4>${p.name}</h4>
           <p style="color:#888;font-size:0.85rem;">${p.cat}</p>
           ${p.disc && p.disc > 0 ? `<p class="price">₹${p.disc.toLocaleString()} <span style="text-decoration:line-through;color:#999;font-size:0.8rem;">₹${p.price.toLocaleString()}</span></p>` : `<p class="price">₹${p.price.toLocaleString()}</p>`}
-          <p class="rating">${'⭐'.repeat(rating)} <span style="color:#888;">(${rating})</span></p>
+          <p class="rating">${'⭐'.repeat(Math.min(rating,5))} <span style="color:#888;">(${rating})</span></p>
           <a href="https://wa.me/919276409795?text=I'm%20interested%20in%20${encodeURIComponent(p.name)}%20-%20₹${p.disc && p.disc > 0 ? p.disc : p.price}" class="btn btn-gold" style="padding:10px 20px;font-size:0.8rem;width:100%;text-align:center;display:block;">💬 WhatsApp Inquiry</a>
         </div>
       </div>
@@ -313,12 +322,22 @@
 
   function renderProducts() {
     const filtered = getFilteredProducts();
-    document.getElementById('productGrid').innerHTML = filtered.map(renderProductCard).join('');
+    const grid = document.getElementById('productGrid');
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div class="no-products-msg"><p style="font-size:1.2rem;margin-bottom:10px;">🛍️ No products found</p><p style="color:#aaa;">Try selecting a different category or check back later</p></div>`;
+    } else {
+      grid.innerHTML = filtered.map(renderProductCard).join('');
+    }
   }
 
   function renderTrending() {
     const trending = products.filter(p => (p.badge === "Trending" || p.badge === "Bestseller") && !p.hidden).slice(0, 5);
-    document.getElementById('trendingSlider').innerHTML = trending.map(p => {
+    const slider = document.getElementById('trendingSlider');
+    if (trending.length === 0) {
+      slider.innerHTML = '<p style="padding:20px;color:#999;">No trending products yet.</p>';
+      return;
+    }
+    slider.innerHTML = trending.map(p => {
       const img = p.images && p.images[0] ? p.images[0] : 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400';
       return `<div class="trending-card">${p.badge ? `<span class="badge">${p.badge}</span>` : ''}<img src="${img}" alt="${p.name}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400'"><h4 style="margin-top:10px;">${p.name}</h4><p class="gold">₹${p.price.toLocaleString()}</p></div>`;
     }).join('');
@@ -326,7 +345,12 @@
 
   function renderNewArrivals() {
     const newItems = products.filter(p => p.badge === "New" && !p.hidden).slice(0, 4);
-    document.getElementById('newArrivalsGrid').innerHTML = newItems.map(renderProductCard).join('');
+    const grid = document.getElementById('newArrivalsGrid');
+    if (newItems.length === 0) {
+      grid.innerHTML = `<div class="no-products-msg"><p style="color:#999;">No new arrivals yet.</p></div>`;
+      return;
+    }
+    grid.innerHTML = newItems.map(renderProductCard).join('');
   }
 
   function renderAll() {
@@ -402,9 +426,8 @@
     const fileInput = document.getElementById('imageUpload');
     if (fileInput.files.length > 0) {
       handleImageUpload(fileInput.files);
-      fileInput.value = ''; // Reset file input
+      fileInput.value = '';
     } else {
-      // Check if there are URLs entered
       const urlInput = document.getElementById('pImagesUrl');
       if (urlInput.value.trim()) {
         const urls = urlInput.value.split(',').map(s => s.trim()).filter(s => s);
@@ -417,7 +440,6 @@
     }
   });
 
-  // Also handle file input change directly
   document.getElementById('imageUpload').addEventListener('change', function() {
     if (this.files.length > 0) {
       handleImageUpload(this.files);
@@ -425,7 +447,6 @@
     }
   });
 
-  // Handle URL input with Enter key
   document.getElementById('pImagesUrl').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
       document.getElementById('addImagesBtn').click();
@@ -441,13 +462,11 @@
       return;
     }
     
-    // Get images from hidden input
-    const imagesStr = document.getElementById('pImages').value;
     let images = [];
+    const imagesStr = document.getElementById('pImages').value;
     if (imagesStr) {
       images = imagesStr.split(',').map(s => s.trim()).filter(s => s);
     }
-    // If no images uploaded, use URL input as fallback
     if (images.length === 0) {
       const urlInput = document.getElementById('pImagesUrl').value.trim();
       if (urlInput) {
@@ -477,14 +496,16 @@
     };
     products.push(newProduct);
     saveProducts();
-    renderAll();
-    renderAdminList();
     
     // Clear form
     ['pName','pPrice','pDisc','pCat','pBrand','pSizes','pColors','pStock','pSku','pTags','pKeywords','pImages','pDesc','pImagesUrl'].forEach(id => document.getElementById(id).value = '');
     uploadedImages = [];
     document.getElementById('imagePreviewContainer').innerHTML = '';
     document.getElementById('imageUpload').value = '';
+    
+    // Refresh all displays
+    renderAll();
+    renderAdminList();
     
     alert('✅ Product added successfully!');
   });
@@ -596,7 +617,12 @@
       (p.keywords && p.keywords.toLowerCase().includes(query)) ||
       (p.cat && p.cat.toLowerCase().includes(query))
     );
-    document.getElementById('productGrid').innerHTML = filtered.map(renderProductCard).join('');
+    const grid = document.getElementById('productGrid');
+    if (filtered.length === 0) {
+      grid.innerHTML = `<div class="no-products-msg"><p style="font-size:1.2rem;margin-bottom:10px;">🔍 No products found</p><p style="color:#aaa;">Try a different search term</p></div>`;
+    } else {
+      grid.innerHTML = filtered.map(renderProductCard).join('');
+    }
   });
 
   document.getElementById('hamburgerBtn').addEventListener('click', () => {
